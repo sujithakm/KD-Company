@@ -20,7 +20,7 @@ namespace KD_Company.Controllers
         {
             return View();
         }
-        public IActionResult Forlogin(string email,string password)
+        public IActionResult Forlogin(string email, string password)
         {
             string Email = email;
             string Password = password;
@@ -33,7 +33,13 @@ namespace KD_Company.Controllers
             {
                 return null;
             }
-            
         }
+
+            public IActionResult Payment()
+            {
+                return View();
+            }
+
     }
 }
+
