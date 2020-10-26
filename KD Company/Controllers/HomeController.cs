@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using KD_Company.Models;
+using KD_Company.utill;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KD_Company.Controllers
@@ -39,6 +41,14 @@ namespace KD_Company.Controllers
             {
                 return View();
             }
+        [HttpPost]
+        public IActionResult Registration(Register register)
+        {
+            Email em = new Email();
+            em.SendEmail(register.Email);
+
+            return View();
+        }
 
     }
 }
