@@ -22,11 +22,12 @@ namespace KD_Company.utill
 
             mail.To.Add(toAddress);// To
             mail.Subject = "Registration Completed";
-            mail.Body = "Thanks for Registering"; 
+            mail.Body = "Thanks For Registering"; 
            
             //System.Net.Mail.Attachment attachment;
             //attachment = new System.Net.Mail.Attachment("Test.txt");
             //mail.Attachments.Add(attachment);
+
 
 
             SmtpServer.Port = 587;
