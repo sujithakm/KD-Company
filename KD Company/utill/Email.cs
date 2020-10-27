@@ -22,7 +22,7 @@ namespace KD_Company.utill
 
             mail.To.Add(toAddress);// To
             mail.Subject = "Registration Completed";
-            mail.Body = "Thanks For Registering"; 
+            mail.Body = "Thanks for Registering"; 
            
             //System.Net.Mail.Attachment attachment;
             //attachment = new System.Net.Mail.Attachment("Test.txt");
