@@ -8,11 +8,11 @@ namespace KD_Company.utill
 {
     public class Email
     {
-        public void SendEmail(string toAddress)
+        public string SendEmail(string toAddress)
         {
-            //Random rn = new Random();
-            //int otp = rn.Next(1000);
-            //string OTP = otp.ToString();
+            Random rn = new Random();
+            int pass = rn.Next(100000);
+            string Passd = pass.ToString();
 
 
             MailMessage mail = new MailMessage();
@@ -22,7 +22,10 @@ namespace KD_Company.utill
 
             mail.To.Add(toAddress);// To
             mail.Subject = "Registration Completed";
-            mail.Body = "Thanks For Registering"; 
+            mail.Body = "Thanks For Registering" +
+                "your password:"+Passd; 
+
+
            
             //System.Net.Mail.Attachment attachment;
             //attachment = new System.Net.Mail.Attachment("Test.txt");
@@ -35,6 +38,7 @@ namespace KD_Company.utill
             SmtpServer.EnableSsl = true;
 
             SmtpServer.Send(mail);
+            return Passd;
         }
     }
 }

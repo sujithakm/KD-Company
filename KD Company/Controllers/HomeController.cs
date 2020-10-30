@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using KD_Company.Models;
 using KD_Company.utill;
@@ -25,15 +26,20 @@ namespace KD_Company.Controllers
         public IActionResult Forlogin(string email, string password)
         {
             string Email = email;
+           
             string Password = password;
-            if (Email == "kd&company@gmail.com" && Password == "kdcompany")
+            UserAppDbContext dbContext = new UserAppDbContext();
+          var userlist = dbContext.userDetails.ToList();
+            var user=userlist.Where(X => X.Email == email && X.Password == password).FirstOrDefault();
+
+            if (user !=null)
             {
 
                 return View();
             }
             else
             {
-                return null;
+               return RedirectToAction("Login");
             }
         }
 
@@ -42,10 +48,22 @@ namespace KD_Company.Controllers
                 return View();
             }
         [HttpPost]
-        public IActionResult Registration(Register register)
+        public IActionResult Registration(UserDetails register)
         {
+            UserAppDbContext user = new UserAppDbContext();
+            UserDetails us = new UserDetails();
+            us.Name = register.Name;
+            us.Phonenumber = register.Phonenumber;
+            us.Pincode = register.Pincode;
+            us.Place = register.Place;
+            us.Email = register.Email;
+            us.City = register.City;
+            Console.WriteLine(register.Phonenumber);
             Email em = new Email();
-            em.SendEmail(register.Email);
+           string pass=em.SendEmail(register.Email);
+            us.Password = pass;
+            user.Add(us);
+            user.SaveChanges();
 
             return View();
         }
