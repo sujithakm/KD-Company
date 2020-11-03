@@ -67,7 +67,20 @@ namespace KD_Company.Controllers
 
             return View();
         }
-        
+
+        public IActionResult AddFeedback()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult ForAddFeedback(Feedback feedbacks)
+        {
+            UserAppDbContext dbcontext = new UserAppDbContext();
+            dbcontext.Feedbacks.Add(feedbacks);
+            dbcontext.SaveChanges();
+            return View();
+        }
+
 
     }
 }
