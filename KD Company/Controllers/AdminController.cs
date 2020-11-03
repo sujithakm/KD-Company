@@ -61,5 +61,12 @@ namespace KD_Company.Controllers
             dbContext.SaveChanges();
             return View();
         }
+        public IActionResult ViewFeedback()
+        {
+            UserAppDbContext dbContext = new UserAppDbContext();
+            var list = dbContext.Feedbacks.ToList();
+
+            return View(list);
+        }
     }
 }
