@@ -9,6 +9,7 @@ namespace KD_Company.Models
     public class UserAppDbContext:DbContext
     {
         public DbSet<UserDetails> userDetails { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<CarDetails> cardetails { get; set; }
         public DbSet<Adminlogin> adminlogins { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
