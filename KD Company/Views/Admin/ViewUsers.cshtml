@@ -1,0 +1,40 @@
+﻿@model IEnumerable<KD_Company.Models.UserDetails>
+@{
+    ViewData["Title"] = "ViewUsers";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Place</th>
+            <th scope="col">City</th>
+            <th scope="col">Pin</th>
+            <th scope="col">Phone No</th>
+            <th scope="col">Email</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Place</td>
+            <td>@item.City</td>
+            <td>@item.Pincode</td>
+            <td>@item.Phonenumber</td>
+            <td>@item.Email</td>
+
+
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+

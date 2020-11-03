@@ -50,23 +50,24 @@ namespace KD_Company.Controllers
         [HttpPost]
         public IActionResult Registration(UserDetails register)
         {
-            UserAppDbContext user = new UserAppDbContext();
-            UserDetails us = new UserDetails();
-            us.Name = register.Name;
-            us.Phonenumber = register.Phonenumber;
-            us.Pincode = register.Pincode;
-            us.Place = register.Place;
-            us.Email = register.Email;
-            us.City = register.City;
-            Console.WriteLine(register.Phonenumber);
-            Email em = new Email();
-           string pass=em.SendEmail(register.Email);
-            us.Password = pass;
-            user.Add(us);
-            user.SaveChanges();
+            using (UserAppDbContext user = new UserAppDbContext())
+            {
+                UserDetails us = new UserDetails();
+                Email em = new Email();
+                string pass = em.SendEmail(register.Email);
+                register.Password = pass;
+                //user.Add(us);
+               
+                user.userDetails.Add(register);
+                user.SaveChanges();
+
+            }
+            
+           
 
             return View();
         }
+        
 
     }
 }

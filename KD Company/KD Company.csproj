@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\admin\.github\workflows\main.yml" />
     <None Include="wwwroot\Registercss\css\demo.css" />
     <None Include="wwwroot\Registercss\css\style.css" />
   </ItemGroup>

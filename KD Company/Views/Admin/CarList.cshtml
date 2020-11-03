@@ -1,0 +1,37 @@
+﻿@model IEnumerable<KD_Company.Models.CarDetails>
+@{
+    ViewData["Title"] = "CarList";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Brand Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Color</th>
+            <th scope="col">Price</th>
+          
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.Id</td>
+                <td>@item.CarName</td>
+                <td>@item.BrandName</td>
+                <td>@item.Type</td>
+                <td>@item.Color</td>
+                <td>@item.Price</td>
+               
+
+
+            </tr>
+        }
+    </tbody>
+</table>

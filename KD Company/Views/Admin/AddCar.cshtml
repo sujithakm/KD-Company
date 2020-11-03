@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "AddCar";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<form method="post" action="SaveCar">
+    <div class="form-group">
+
+        <input type="text" class="form-control" name="CarName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Car Name">
+
+    </div>
+    <div class="form-group">
+
+        <input type="text" class="form-control" name="BrandName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Brand Name">
+
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" name="Type" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Vechicle type">
+
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" name="Color" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Color">
+
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" name="Price" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Price">
+
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
