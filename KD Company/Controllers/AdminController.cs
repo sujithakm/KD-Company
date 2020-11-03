@@ -13,6 +13,28 @@ namespace KD_Company.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Home(string email,string password)
+        {
+            string Email = email;
+
+            string Password = password;
+            UserAppDbContext dbContext = new UserAppDbContext();
+            var userlist = dbContext.adminlogins.ToList();
+            var user = userlist.Where(X => X.Email == email && X.Password == password).FirstOrDefault();
+
+            if (user != null)
+            {
+
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+
+           
+        }
         public IActionResult ViewUsers()
         {
             UserAppDbContext dbContext = new UserAppDbContext();
