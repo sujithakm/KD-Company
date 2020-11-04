@@ -81,6 +81,11 @@ namespace KD_Company.Controllers
             return View();
         }
 
+        public IActionResult SingleProduct()
+        {
+            return View();
+        }
+
 
     }
 }

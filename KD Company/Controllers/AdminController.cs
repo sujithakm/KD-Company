@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using KD_Company.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KD_Company.Controllers
@@ -54,10 +56,26 @@ namespace KD_Company.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult SaveCar(CarDetails cars)
+        public async Task<IActionResult> SaveCarAsync(CarDetails cars)
         {
+        
+
+            if (cars.FileToUpload == null || cars.FileToUpload.Length == 0)
+                return Content("file not selected");
+            //string path = (@"C:\Users\nithe\Source\Repos\KD-Company\KD Company\wwwroot\Car\");
+            var path = Path.Combine(
+                        Directory.GetCurrentDirectory(), "wwwroot/Car",
+                       cars.FileToUpload.FileName);
+            Console.WriteLine(path);
+
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await cars.FileToUpload.CopyToAsync(stream);
+            }
+            
+            cars.FileName = cars.FileToUpload.FileName;
             UserAppDbContext dbContext = new UserAppDbContext();
-            dbContext.Add(cars);
+            dbContext.cardetails.Add(cars);
             dbContext.SaveChanges();
             return View();
         }
