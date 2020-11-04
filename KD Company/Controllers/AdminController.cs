@@ -57,7 +57,7 @@ namespace KD_Company.Controllers
         public IActionResult SaveCar(CarDetails cars)
         {
             UserAppDbContext dbContext = new UserAppDbContext();
-            dbContext.Add(cars);
+            dbContext.cardetails.Add(cars);
             dbContext.SaveChanges();
             return View();
         }
