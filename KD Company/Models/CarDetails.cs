@@ -16,6 +16,9 @@ namespace KD_Company.Models
         public string Type { get; set; }
         public string  Color { get; set; }
         public string Price { get; set; }
+        public string Description { get; set; }
+
+
         [NotMapped]
         public IFormFile FileToUpload { get; set; }
         public string FileName { get; set; }

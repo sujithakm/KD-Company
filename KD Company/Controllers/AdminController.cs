@@ -86,5 +86,11 @@ namespace KD_Company.Controllers
 
             return View(list);
         }
+        public IActionResult ViewnNotification()
+        {
+           
+
+            return View();
+        }
     }
 }
