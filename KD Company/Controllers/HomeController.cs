@@ -41,6 +41,7 @@ namespace KD_Company.Controllers
             {
                return RedirectToAction("Login");
             }
+
         }
 
             public IActionResult Payment()
@@ -83,7 +84,18 @@ namespace KD_Company.Controllers
 
         public IActionResult SingleProduct()
         {
-            return View();
+            //var id = cars.Id;
+            var id = 6;
+            UserAppDbContext dbContext = new UserAppDbContext();
+            var list = dbContext.cardetails.ToList();
+            CarDetails car = new CarDetails();
+            car = list.Where(x => x.Id ==id).FirstOrDefault();
+            
+
+
+            //ViewBag.name=car.FileName;
+            
+            return View(car);
         }
 
 
