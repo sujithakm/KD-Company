@@ -39,7 +39,11 @@ namespace KD_Company.Controllers
             }
             else
             {
-               return RedirectToAction("Login");
+                
+                var list = dbContext.cardetails.ToList();
+
+                return View(list);
+               
             }
 
         }
