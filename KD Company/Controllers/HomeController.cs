@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using KD_Company.Migrations;
 using KD_Company.Models;
 using KD_Company.utill;
 using Microsoft.AspNetCore.Mvc;
@@ -31,18 +32,18 @@ namespace KD_Company.Controllers
             UserAppDbContext dbContext = new UserAppDbContext();
           var userlist = dbContext.userDetails.ToList();
             var user=userlist.Where(X => X.Email == email && X.Password == password).FirstOrDefault();
-
+            var list = dbContext.cardetails.ToList();
             if (user !=null)
             {
 
-                return View();
+                return View(list);
             }
             else
             {
-                
-                var list = dbContext.cardetails.ToList();
 
-                return View(list);
+
+
+                return View();
                
             }
 
@@ -85,11 +86,11 @@ namespace KD_Company.Controllers
             dbcontext.SaveChanges();
             return View();
         }
-
-        public IActionResult SingleProduct()
+        [HttpGet]
+        public IActionResult SingleProduct(int id)
         {
             //var id = cars.Id;
-            var id = 6;
+           
             UserAppDbContext dbContext = new UserAppDbContext();
             var list = dbContext.cardetails.ToList();
             CarDetails car = new CarDetails();
