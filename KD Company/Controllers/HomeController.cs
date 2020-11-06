@@ -31,9 +31,9 @@ namespace KD_Company.Controllers
             string Password = password;
             UserAppDbContext dbContext = new UserAppDbContext();
           var userlist = dbContext.userDetails.ToList();
-            var user=userlist.Where(X => X.Email == email && X.Password == password).FirstOrDefault();
+            var user=userlist.Where(X => X.Email == Email && X.Password == Password).FirstOrDefault();
             var list = dbContext.cardetails.ToList();
-            if (user !=null)
+            if (user != null)
             {
 
                 return View(list);
@@ -43,7 +43,7 @@ namespace KD_Company.Controllers
 
 
 
-                return View();
+                return RedirectToAction("Login");
                
             }
 
@@ -101,6 +101,22 @@ namespace KD_Company.Controllers
             //ViewBag.name=car.FileName;
             
             return View(car);
+        }
+        public IActionResult Search()
+        {
+            UserAppDbContext dbContext = new UserAppDbContext();
+            var carlist = dbContext.cardetails.ToList();
+
+            return View(carlist);
+        }
+        
+        public IActionResult Forsearch(string searchtext)
+        {
+            UserAppDbContext dbcontext = new UserAppDbContext();
+            var car = dbcontext.cardetails.ToList();
+            var user = car.Where(X => X.BrandName == searchtext);
+
+            return View(user);
         }
 
 
