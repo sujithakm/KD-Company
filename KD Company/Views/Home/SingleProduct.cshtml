@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <section class="section video" data-section="section5">
     <div class="container">
         <div class="row">
@@ -29,10 +30,28 @@
                     <p>
                         @Model.Description
                     </p>
-                    <div class="main-button"><a rel="nofollow" href="https://fb.com/templatemo" target="_parent">External URL</a></div>
+                    <form method="get" action="ForBooking" enctype="multipart/form-data">
+                        <div class="col-md-12">
+                            <fieldset>
+                                <input name="NoOfDays" type="text" class="form-control" id="email" placeholder="Duration" required="">
+                            </fieldset>
+                        </div>
+                        <div class="form-group">
+                            <input id="prodId" name="Id" type="hidden" value="@Model.Id">
+
+                        </div>
+
+                        <div class="col-md-12">
+                            <fieldset>
+                                <button type="submit" id="form-submit" class="button">ForBooking</button>
+                            </fieldset>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </section>
+    
+
 

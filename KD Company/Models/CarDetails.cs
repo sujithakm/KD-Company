@@ -15,8 +15,9 @@ namespace KD_Company.Models
         public string BrandName { get; set; }
         public string Type { get; set; }
         public string  Color { get; set; }
-        public string Price { get; set; }
+        public int Price { get; set; }
         public string Description { get; set; }
+      
         public string FileName { get; set; }
 
         [NotMapped]

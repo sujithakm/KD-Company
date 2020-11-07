@@ -40,10 +40,10 @@ namespace KD_Company.Controllers
             }
             else
             {
-
-
-
                 return RedirectToAction("Login");
+               
+
+                
                
             }
 
@@ -118,6 +118,30 @@ namespace KD_Company.Controllers
 
             return View(user);
         }
+        public IActionResult ForBooking(Rentdays Rent)
+        {
+            int No = Rent.NoOfDays;
+            int Id = Rent.Id;
+            UserAppDbContext dbContext = new UserAppDbContext();
+            var car = dbContext.cardetails.ToList();
+            var cars = car.Where(X => X.Id == Id).FirstOrDefault();
+            var Price = cars.Price;
+
+            int Totalamount = Price * No;
+            ViewBag.Number = No;
+            ViewBag.id = Id;
+            ViewBag.Total = Totalamount;
+
+
+            return View();
+        }
+        public IActionResult pay()
+        {
+            
+
+            return View();
+        }
+
 
 
     }
