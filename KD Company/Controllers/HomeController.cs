@@ -26,9 +26,9 @@ namespace KD_Company.Controllers
         }
         public IActionResult Forlogin(string email, string password)
         {
-            string Email = email;
+            //string Email = email;
            
-            string Password = password;
+            //string Password = password;
             UserAppDbContext dbContext = new UserAppDbContext();
           var userlist = dbContext.userDetails.ToList();
             var user=userlist.Where(X => X.Email == email && X.Password == password).FirstOrDefault();
@@ -40,11 +40,7 @@ namespace KD_Company.Controllers
             }
             else
             {
-
-
-
-                return View();
-               
+                return RedirectToAction("Login");
             }
 
         }
@@ -95,8 +91,8 @@ namespace KD_Company.Controllers
             var list = dbContext.cardetails.ToList();
             CarDetails car = new CarDetails();
             car = list.Where(x => x.Id ==id).FirstOrDefault();
-            
 
+        
 
             //ViewBag.name=car.FileName;
             
