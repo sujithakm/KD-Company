@@ -5,6 +5,12 @@
 }
 
 <section class="section coming-soon" data-section="section3">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     <div class="container">
         <div class="row">
             <div class="col-md-5">
@@ -17,14 +23,14 @@
 
                             <div class="col-md-12">
                                 <fieldset>
-                                  
+
                                     <select name="select" class="form-control">
                                         @foreach (var item in Model)
                                         {
                                             <option name="searchtext" type="text" class="form-control" value="@item.BrandName" placeholder="Search">@item.BrandName</option>
                                         }
-                                        </select>
-                                   
+                                    </select>
+
                                 </fieldset>
                             </div>
 
@@ -32,7 +38,9 @@
                                 <fieldset>
                                     <button type="submit" id="form-submit" class="button">Search</button>
                                 </fieldset>
+
                             </div>
+
                         </div>
                     </form>
                 </div>

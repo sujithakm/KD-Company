@@ -3,21 +3,25 @@
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <section class="section coming-soon" data-section="section3">
     <div class="container">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <div class="right-content">
                     <div class="top-content">
-                        <h6> Pls <em>Login</em> Your Account</h6>
+                        <h6>please Login With Your Account</h6>
                     </div>
-                    <form id="contact" asp-controller="Home" asp-action="ForLogin" method="get">
+                    <br />
+                    <br />
+                    <form id="contact" asp-controller="Home" asp-action="ForLogin" method="post">
                         
                         <div class="row">
 
                             <div class="col-md-12">
                                 <fieldset>
                                     <input name="Email" type="text" class="form-control" id="email" placeholder="Your Email" required="">
+                                    <br />
                                 </fieldset>
                             </div>
                             <div class="col-md-12">
@@ -27,12 +31,18 @@
                             </div>
                             <div class="col-md-12">
                                 <fieldset>
+                                    <br />
+                                    <br />
+                                   
                                     <button type="submit" id="form-submit" class="button">Login</button>
                                 </fieldset>
                             </div>
+                            <br />
+                            <br />
                         </div>
                     </form>
                 </div>
             </div>
+        
 
 </div></div></section>
