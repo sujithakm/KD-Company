@@ -141,7 +141,6 @@ namespace KD_Company.Controllers
             UserAppDbContext dbcontext = new UserAppDbContext();
             dbcontext.orders.Add(orders);
             dbcontext.SaveChanges();
-
             return View();
         }
 
