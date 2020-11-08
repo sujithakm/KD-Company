@@ -3,14 +3,16 @@ using KD_Company.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KD_Company.Migrations
 {
     [DbContext(typeof(UserAppDbContext))]
-    partial class UserAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201108101636_feed")]
+    partial class feed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,9 +66,6 @@ namespace KD_Company.Migrations
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("status")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("cardetails");
@@ -88,33 +87,6 @@ namespace KD_Company.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Feedbacks");
-                });
-
-            modelBuilder.Entity("KD_Company.Models.Order", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Carid")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Carname")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("NoOfDays")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Total")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("orders");
                 });
 
             modelBuilder.Entity("KD_Company.Models.UserDetails", b =>

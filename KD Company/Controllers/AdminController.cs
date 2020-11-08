@@ -91,9 +91,9 @@ namespace KD_Company.Controllers
         }
         public IActionResult ViewnNotification()
         {
-           
-
-            return View();
+            UserAppDbContext dbContext = new UserAppDbContext();
+            var order = dbContext.orders.ToList();
+            return View(order);
         }
         public IActionResult Delete(int id)
         {

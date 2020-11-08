@@ -135,9 +135,13 @@ namespace KD_Company.Controllers
 
             return View(cars);
         }
-        public IActionResult pay()
+        [HttpPost]
+        public IActionResult pay(Order orders)
         {
-            
+            UserAppDbContext dbcontext = new UserAppDbContext();
+            dbcontext.orders.Add(orders);
+            dbcontext.SaveChanges();
+
             return View();
         }
 

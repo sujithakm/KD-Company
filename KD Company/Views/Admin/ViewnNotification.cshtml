@@ -1,39 +1,36 @@
-﻿
+﻿@model IEnumerable<KD_Company.Models.Order>
 @{
     ViewData["Title"] = "ViewNotification";
     Layout = "~/Views/Shared/Admin.cshtml";
 }
 
-<h1>AdminViewnotification</h1>
+<h1>Orders</h1>
 <table class="table">
     <thead class="thead-dark">
         <tr>
             <th scope="col">Id</th>
             <th scope="col">User Name</th>
-            <th scope="col">User Address</th>
-            <th scope="col">User Phonenumber</th>
+            
+            @*<th scope="col">User Phonenumber</th>*@
             <th scope="col">Car Name</th>
-            <th scope="col">Brand Name</th>
-            <th scope="col">Starting Date</th>
-            <th scope="col">Ending Date</th>
+           
+            <th scope="col">No of Days</th>
+            
             <th scope="col">Total Amount</th>
 
 
         </tr>
     </thead>
     <tbody>
-
+        @foreach (var item in @Model)
+        {
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Carname</td>
+            <td>@item.NoOfDays</td>
+            <td>@item.Total</td>
         </tr>
-
+        }
     </tbody>
 </table>

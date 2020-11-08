@@ -12,7 +12,7 @@ namespace KD_Company.Models
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<CarDetails> cardetails { get; set; }
         public DbSet<Adminlogin> adminlogins { get; set; }
-       
+        public DbSet<Order> orders { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=CarRental;Trusted_Connection=True;");

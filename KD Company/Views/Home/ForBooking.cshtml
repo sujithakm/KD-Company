@@ -18,31 +18,37 @@
                     <div class="top-content">
                         <h6>Enter Payment Informations</h6>
                     </div>
-                    <form id="contact" action="pay" method="get">
+                    <form id="contact" action="pay" method="post">
                         <div class="row">
                             <div class="col-md-12">
                                 <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name" placeholder="Name">
+                                    Name
+                                    <input name="Name" type="text" class="form-control" id="name" placeholder="Name">
                                 </fieldset>
                             </div>
                             <div class="col-md-12">
                                 <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name" value="@Model.BrandName @Model.CarName">
+                                    car Name
+                                    <input name="Carname" type="text" class="form-control" id="name" value="@Model.BrandName @Model.CarName">
+                                    <input type="hidden" value="@Model.Id" name="Carid" />
                                 </fieldset>
                             </div>
                             <div class="col-md-12">
                                 <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name" value="@Model.Price pre day">
+                                    Price
+                                    <input name="" type="text" class="form-control" id="name" value="@Model.Price pre day">
                                 </fieldset>
                             </div>
                             <div class="col-md-12">
                                 <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name" value="@ViewBag.Number Days">
+                                    No of Days
+                                    <input name="NoOfDays" type="text" class="form-control" id="name" value="@ViewBag.Number">
                                 </fieldset>
                             </div>
                             <div class="col-md-12">
                                 <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name" value="@ViewBag.Total Total">
+                                    Total
+                                    <input name="Total" type="text" class="form-control" id="name" value="@ViewBag.Total">
                                 </fieldset>
                             </div>
 

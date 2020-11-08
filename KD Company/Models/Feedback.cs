@@ -10,6 +10,7 @@ namespace KD_Company.Models
     {
         [Key]
         public int Id { get; set; }
+        public string Email { get; set; }
         public string FeedBack { get; set; }
     }
 }
