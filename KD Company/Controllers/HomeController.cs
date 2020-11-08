@@ -38,14 +38,14 @@ namespace KD_Company.Controllers
             var Notbooked = list.Where(X => X.status == "Not Booked");
             if (user != null)
             {
-                return View(Notbooked);
 
+                return View(Notbooked);
 
             }
             else
             {
                 return RedirectToAction("Login");
-
+                 
             }
 
         }
@@ -114,7 +114,7 @@ namespace KD_Company.Controllers
             string searchtext = select;
             UserAppDbContext dbcontext = new UserAppDbContext();
             var car = dbcontext.cardetails.ToList();
-            var user = car.Where(X => X.BrandName == searchtext);
+            var user = car.Where(X => X.BrandName == searchtext && X.status=="Not Booked");
 
             return View(user);
         }
@@ -140,6 +140,13 @@ namespace KD_Company.Controllers
         {
             UserAppDbContext dbcontext = new UserAppDbContext();
             dbcontext.orders.Add(orders);
+            
+            CarDetails car = dbcontext.cardetails.Single(X => X.Id == orders.Carid);
+            //Field which will be update  
+            car.status = "Booked";
+
+
+
             dbcontext.SaveChanges();
             return View();
         }
