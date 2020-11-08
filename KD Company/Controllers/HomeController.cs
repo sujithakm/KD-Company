@@ -24,19 +24,22 @@ namespace KD_Company.Controllers
         {
             return View();
         }
+        [HttpPost]
         public IActionResult Forlogin(string email, string password)
         {
             //string Email = email;
-           
+
             //string Password = password;
             UserAppDbContext dbContext = new UserAppDbContext();
-          var userlist = dbContext.userDetails.ToList();
-            var user=userlist.Where(X => X.Email == email && X.Password == password).FirstOrDefault();
+            var userlist = dbContext.userDetails.ToList();
+            var user = userlist.Where(X => X.Email == email && X.Password == password).FirstOrDefault();
             var list = dbContext.cardetails.ToList();
+            
+            var Notbooked = list.Where(X => X.status == "Not Booked");
             if (user != null)
             {
-                return View(list);
-               
+                return View(Notbooked);
+
 
             }
             else
@@ -47,7 +50,7 @@ namespace KD_Company.Controllers
 
         }
 
-            public IActionResult Payment()
+        public IActionResult Payment()
             {
                 return View();
             }
@@ -134,7 +137,7 @@ namespace KD_Company.Controllers
         }
         public IActionResult pay()
         {
-           
+            
             return View();
         }
 

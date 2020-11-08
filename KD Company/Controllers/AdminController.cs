@@ -76,6 +76,7 @@ namespace KD_Company.Controllers
             }
             
             cars.FileName = cars.FileToUpload.FileName;
+            cars.status = "Not Booked";
             UserAppDbContext dbContext = new UserAppDbContext();
             dbContext.cardetails.Add(cars);
             dbContext.SaveChanges();
