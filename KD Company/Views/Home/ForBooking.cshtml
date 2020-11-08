@@ -1,4 +1,4 @@
-﻿
+﻿@model KD_Company.Models.CarDetails
 @{
     ViewData["Title"] = "SingleProduct";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,9 +9,6 @@
 <br />
 
 
-
-@ViewBag.Number
-@ViewBag.id
 
 <section class="section coming-soon" data-section="section3">
     <div class="container">
@@ -25,10 +22,30 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name"  value="@ViewBag.Total">
+                                    <input name="name" type="text" class="form-control" id="name" placeholder="Name">
                                 </fieldset>
                             </div>
-                            
+                            <div class="col-md-12">
+                                <fieldset>
+                                    <input name="name" type="text" class="form-control" id="name" value="@Model.BrandName @Model.CarName">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-12">
+                                <fieldset>
+                                    <input name="name" type="text" class="form-control" id="name" value="@Model.Price pre day">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-12">
+                                <fieldset>
+                                    <input name="name" type="text" class="form-control" id="name" value="@ViewBag.Number Days">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-12">
+                                <fieldset>
+                                    <input name="name" type="text" class="form-control" id="name" value="@ViewBag.Total Total">
+                                </fieldset>
+                            </div>
+
                             <div class="col-md-12">
                                 <fieldset>
                                     <button type="submit" id="form-submit" class="button">Pay</button>

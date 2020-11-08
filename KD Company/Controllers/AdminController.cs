@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using KD_Company.Migrations;
 using KD_Company.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Razor.Language;
 
 namespace KD_Company.Controllers
 {
@@ -91,6 +93,32 @@ namespace KD_Company.Controllers
            
 
             return View();
+        }
+        public IActionResult Delete(int id)
+        {
+            UserAppDbContext dbContext = new UserAppDbContext();
+            var list = dbContext.cardetails.Where(x => x.Id == id).First();
+            dbContext.cardetails.Remove(list);
+            dbContext.SaveChanges();
+
+            return RedirectToAction("CarList");
+        }
+        public IActionResult Update(int id)
+        {
+            UserAppDbContext dbContext = new UserAppDbContext();
+           var car= dbContext.cardetails.Where(x => x.Id == id).FirstOrDefault();
+            return View(car);
+        }
+        [HttpPost]
+        public IActionResult UpdateCar(CarDetails cars)
+        {
+           using( UserAppDbContext dbContext = new UserAppDbContext())
+           {
+                dbContext.cardetails.Update(cars);
+                dbContext.SaveChanges();
+
+            }
+            return RedirectToAction("CarList");
         }
     }
 }

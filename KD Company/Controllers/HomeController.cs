@@ -31,7 +31,7 @@ namespace KD_Company.Controllers
             //string Password = password;
             UserAppDbContext dbContext = new UserAppDbContext();
           var userlist = dbContext.userDetails.ToList();
-            var user=userlist.Where(X => X.Email == Email && X.Password == Password).FirstOrDefault();
+            var user=userlist.Where(X => X.Email == email && X.Password == password).FirstOrDefault();
             var list = dbContext.cardetails.ToList();
             if (user != null)
             {
@@ -90,10 +90,7 @@ namespace KD_Company.Controllers
             UserAppDbContext dbContext = new UserAppDbContext();
             var list = dbContext.cardetails.ToList();
             CarDetails car = new CarDetails();
-            car = list.Where(x => x.Id ==id).FirstOrDefault();
-
-        
-
+            car = list.Where(x => x.Id == id).FirstOrDefault();
             //ViewBag.name=car.FileName;
             
             return View(car);
@@ -129,12 +126,11 @@ namespace KD_Company.Controllers
             ViewBag.Total = Totalamount;
 
 
-            return View();
+            return View(cars);
         }
         public IActionResult pay()
         {
-            
-
+           
             return View();
         }
 
