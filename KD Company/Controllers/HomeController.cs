@@ -35,12 +35,14 @@ namespace KD_Company.Controllers
             var list = dbContext.cardetails.ToList();
             if (user != null)
             {
-
                 return View(list);
+               
+
             }
             else
             {
                 return RedirectToAction("Login");
+
             }
 
         }
@@ -99,12 +101,14 @@ namespace KD_Company.Controllers
         {
             UserAppDbContext dbContext = new UserAppDbContext();
             var carlist = dbContext.cardetails.ToList();
+             var brand=carlist.GroupBy(x => x.BrandName).Select(x => x.FirstOrDefault());
 
-            return View(carlist);
+            return View(brand);
         }
         
-        public IActionResult Forsearch(string searchtext)
+        public IActionResult Forsearch(string select)
         {
+            string searchtext = select;
             UserAppDbContext dbcontext = new UserAppDbContext();
             var car = dbcontext.cardetails.ToList();
             var user = car.Where(X => X.BrandName == searchtext);

@@ -3,9 +3,6 @@
     ViewData["Title"] = "Forsearch";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<br />
-<br />
-
 <section class="section courses" data-section="section4">
     <div class="container-fluid">
         <div class="row">
@@ -15,32 +12,33 @@
                 </div>
             </div>
 
-            <div class="owl-carousel owl-theme">
-                @foreach (var item in Model)
-                {
-                    <div class="item">
-
-                        <img width="50" height="150" src="~/Car/@item.FileName" alt="Course #1">
-                        <div class="down-content">
-                            <h4>@item.CarName</h4>
-                            <p>@item.Description</p>
-                            @*<div class="author-image">
-                        <img src=@item.FileName alt="Author 1">
-                    </div*@>
-                            <div class="text-button-pay">
-                                <a href="SingleProduct?id=@item.Id" ;>View Details<i class="fa fa-angle-double-right"></i></a>
-                            </div>
-                         </div>
-                        
-                    </div>
-
-                }
 
 
+
+            @foreach (var item in Model)
+            {
+
+
+                <div class="col-lg-3 col-sm-6 col-md-3">
+
+                    <a href="SingleProduct?id=@item.Id" ;>
+                        <div class="box-img">
+                            <h4>@item.BrandName  @item.CarName</h4>
+                            <img width="300" height="200" src="~/Car/@item.FileName" alt="">
+                        </div>
+                    </a>
                 </div>
 
 
-
+            }
         </div>
+
+
+
+
+
+
+
     </div>
 </section>
+

@@ -9,7 +9,10 @@ using System.Threading.Tasks;
 namespace KD_Company.Models
 {
     public class CarDetails
-    {[Key]
+    {
+        internal readonly object Text;
+
+        [Key]
         public int Id { get; set; }
         public string CarName { get; set; }
         public string BrandName { get; set; }
